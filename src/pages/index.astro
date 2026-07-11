@@ -1,11 +1,90 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+	{
+		name: 'Project Name',
+		description: 'プロジェクトの説明をここに書きます。',
+		url: 'https://github.com/EisakuSato',
+	},
+];
+
+const skills = ['TypeScript', 'React', 'Astro', 'Node.js'];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Eisaku Sato">
+	<section>
+		<h1>Eisaku Sato</h1>
+		<p>自己紹介文をここに書きます。</p>
+	</section>
+
+	<section>
+		<h2>Skills</h2>
+		<ul class="tags">
+			{skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+	</section>
+
+	<section>
+		<h2>Projects</h2>
+		<ul class="projects">
+			{
+				projects.map((project) => (
+					<li>
+						<a href={project.url} target="_blank" rel="noopener noreferrer">
+							{project.name}
+						</a>
+						<p>{project.description}</p>
+					</li>
+				))
+			}
+		</ul>
+	</section>
 </Layout>
+
+<style>
+	section {
+		margin-bottom: 2.5rem;
+	}
+
+	h1 {
+		margin-bottom: 0.25rem;
+	}
+
+	.tags {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		padding: 0;
+	}
+
+	.tags li {
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.875rem;
+	}
+
+	.projects {
+		list-style: none;
+		padding: 0;
+	}
+
+	.projects li {
+		border: 1px solid var(--border);
+		border-radius: 8px;
+		padding: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.projects a {
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.projects p {
+		margin: 0.25rem 0 0;
+		color: var(--muted);
+	}
+</style>

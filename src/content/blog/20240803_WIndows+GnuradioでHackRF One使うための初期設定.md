@@ -1,5 +1,6 @@
 ---
 title: "WIndows+GnuradioでHackRF One使うための初期設定"
+description: "Windows環境でradiocondaとZadigを使い、GnuradioからHackRF Oneを使うための初期設定手順。"
 pubDate: 2024-08-03
 ---
 

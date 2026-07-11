@@ -1,0 +1,31 @@
+---
+import Layout from './Layout.astro';
+
+interface Frontmatter {
+	title: string;
+	description: string;
+	lang: 'en' | 'ja';
+	langSwitchHref: string;
+	langSwitchLabel: string;
+}
+
+const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description} lang={frontmatter.lang}>
+	<p class="lang-switch">
+		<a href={`${base}${frontmatter.langSwitchHref}`}>{frontmatter.langSwitchLabel}</a>
+	</p>
+	<div class="prose">
+		<slot />
+	</div>
+</Layout>
+
+<style>
+	.lang-switch {
+		text-align: right;
+		margin: 0 0 1.5rem;
+		font-size: 0.875rem;
+	}
+</style>

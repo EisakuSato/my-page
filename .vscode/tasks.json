@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "npm",
+      "script": "build",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Preview",
+      "type": "npm",
+      "script": "preview",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "problemMatcher": {
+        "owner": "astro",
+        "pattern": {
+          "regexp": "^┃\\s*Local\\s+(http\\S+)$",
+          "file": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "astro\\s+v[\\d.]+\\s+ready",
+          "endsPattern": "^┃\\s*Local\\s+http"
+        }
+      }
+    },
+    {
+      "label": "Build & Preview",
+      "dependsOn": ["Build", "Preview"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}

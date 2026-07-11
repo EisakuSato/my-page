@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 
 const projects = [
 	{
 		name: 'Project Name',
-		description: 'A short description of the project goes here.',
+		description: 'プロジェクトの説明をここに書きます。',
 		url: 'https://github.com/EisakuSato',
 	},
 ];
@@ -12,12 +12,12 @@ const projects = [
 const skills = ['TypeScript', 'React', 'Astro', 'Node.js'];
 ---
 
-<Layout title="Eisaku Sato" description="Self-introduction, portfolio, and tech blog" lang="en">
-	<p class="lang-switch"><a href={`${import.meta.env.BASE_URL}ja/`}>日本語</a></p>
+<Layout title="Eisaku Sato" description="自己紹介・ポートフォリオ・技術ブログ" lang="ja">
+	<p class="lang-switch"><a href={import.meta.env.BASE_URL}>English</a></p>
 
 	<section>
 		<h1>Eisaku Sato</h1>
-		<p>A short self-introduction goes here.</p>
+		<p>自己紹介文をここに書きます。</p>
 	</section>
 
 	<section>

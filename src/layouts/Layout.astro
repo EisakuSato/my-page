@@ -29,6 +29,7 @@ const {
 				<div class="links">
 					<a href={import.meta.env.BASE_URL}>Home</a>
 					<a href={`${import.meta.env.BASE_URL}/blog/`}>Blog</a>
+					<a href="https://www.linkedin.com/in/eisaku-sato-823ab8325/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 				</div>
 			</nav>
 		</header>
@@ -165,5 +166,29 @@ const {
 		display: block;
 		margin: 1.5rem auto;
 		border-radius: 4px;
+	}
+
+	.prose table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 0 0 1.5rem;
+		font-size: 0.9375rem;
+	}
+
+	.prose th,
+	.prose td {
+		border: 1px solid var(--border);
+		padding: 0.5rem 0.75rem;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	.prose th {
+		background: var(--border);
+		font-weight: 600;
+	}
+
+	.prose tbody tr:nth-child(even) {
+		background: color-mix(in srgb, var(--border) 40%, transparent);
 	}
 </style>

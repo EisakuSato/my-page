@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Sitemap | Eisaku Sato" description="サイト内の全ページ一覧">
+	<h1>Sitemap</h1>
+	<ul class="sitemap">
+		<li><a href={base}>Home</a></li>
+		<li><a href={`${base}/ja/`}>Home (日本語)</a></li>
+		<li>
+			<a href={`${base}/blog/`}>Blog</a>
+			<ul>
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`${base}/blog/${post.id}/`}>{post.data.title}</a>
+						</li>
+					))
+				}
+			</ul>
+		</li>
+	</ul>
+</Layout>
+
+<style>
+	.sitemap,
+	.sitemap ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.sitemap ul {
+		padding-left: 1.25rem;
+		margin: 0.5rem 0 0;
+	}
+
+	.sitemap li {
+		margin: 0.5rem 0;
+	}
+</style>

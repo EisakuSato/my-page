@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://EisakuSato.github.io/my-page/sitemap-index.xml
+Sitemap: https://eisakusato.github.io/my-page/sitemap-index.xml
